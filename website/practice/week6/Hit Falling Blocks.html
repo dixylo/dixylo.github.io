@@ -1,0 +1,132 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+   body {
+     margin: 0px;
+      padding: 0px;
+   }
+   #myCanvas {
+     border: 1px solid #9C9898;
+   }
+  </style>
+
+</head>
+<body>
+
+  <canvas id="myCanvas" width="800" height="600"></canvas>
+  <script>
+
+  var canvas = document.getElementById('myCanvas');
+  var ctx = canvas.getContext('2d');
+
+  canvas.width = 600;
+  canvas.height = 500;
+
+  var boxes = [];
+  var sc = 0;
+  var blockSpeed = 1;
+  var startLine = -10;
+
+  var mySprite = {
+      x: 200,
+      y: 200,
+      width: 50,
+      height: 50,
+      speed: 200,
+      color: 'Indigo'
+  };
+
+  var keysDown = {};
+  window.addEventListener('keydown', function(e) {
+    keysDown[e.keyCode] = true;
+  });
+  window.addEventListener('keyup', function(e) {
+    delete keysDown[e.keyCode];
+  });
+
+  function update(mod) {
+      if (37 in keysDown) {
+          mySprite.x -= mySprite.speed * mod;
+      }
+      if (38 in keysDown) {
+          mySprite.y -= mySprite.speed * mod;
+      }
+      if (39 in keysDown) {
+          mySprite.x += mySprite.speed * mod;
+      }
+      if (40 in keysDown) {
+          mySprite.y += mySprite.speed * mod;
+      }
+  }
+
+  function render() {
+    ctx.fillStyle = 'Khaki';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle="#FF00FF";
+    //Check if we should generate a new Rectangle to start move
+    if (Math.random() < 0.02) {
+      xi = Math.floor(Math.random() * canvas.width);
+      yi = startLine;
+      boxes.push([xi, yi, 30, 30]);
+    }
+    //Update the position of the rectangles
+    for (var i=boxes.length - 1; i >= 0; i--) {
+      boxes[i][1]=boxes[i][1]+blockSpeed; //update x position
+      if (boxes[i][0] > canvas.height)
+        boxes.splice(i, 1);
+      else {
+        ctx.fillRect(boxes[i][0], boxes[i][1], boxes[i][2], boxes[i][3]);
+      }
+    }
+    ctx.fillStyle = mySprite.color;
+    ctx.fillRect(mySprite.x, mySprite.y, mySprite.width, mySprite.height);
+    checkCollision(mySprite.x, mySprite.y, mySprite.width, mySprite.height);
+    writeScore(sc);	//Update Score
+  }
+
+  function run() {
+      update((Date.now() - time) / 1000);
+      render();
+      time = Date.now();
+  }
+
+  var time = Date.now();
+  setInterval(run, 10);
+
+  function checkCollision(x,y,w,h) {
+    for (var i=0; i<boxes.length; i++) {
+      var xi=boxes[i][0];
+      var yi=boxes[i][1];
+      var wi=boxes[i][2];
+      var hi=boxes[i][3];
+
+      if (intersect(x, y, w, h, xi, yi, wi, hi)) {
+        //playSound("beep.mp3");
+        sc += 1;
+        boxes.splice(i, 1);
+        updateCanvas();
+      }
+    }
+  }
+
+  function playSound(soundFile) {
+    document.getElementById("dummy").innerHTML=
+      "<embed src=\""+soundfile+"\" hidden=\"true\" autostart=\"true\" loop=\"false\" />";
+  }
+
+  function intersect(x, y, w, h, xi, yi, wi, hi) {
+    if (Math.abs((x+w/2)-(xi+wi/2))<(w+wi)/2 && Math.abs((y+h/2)-(yi+hi/2))<(h+hi)/2)
+      return true;
+    else return false;
+  }
+
+  function writeScore(score) {
+    ctx.font = "20px Georgia";
+    ctx.fillStyle = "blue";
+    ctx.fillText("Score: " + score, 10, 20);
+  }
+</script>
+</body>
+</html>

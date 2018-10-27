@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Task-2</title>
+</head>
+
+<body>
+	<h1>Calculation</h1><br>
+	<input name = "operator" type = "radio" id = "plus" checked> Plus <br>
+	<input name = "operator" type = "radio"  id = "minus"> Minus <br>
+	<input type = "text" id = "operand">
+	<button type = "button" onclick="myCalculation()">total</button><br>
+	<p id = "display"></p>
+	<script>
+		function myCalculation() {
+			var result;
+			var operand1;
+			var operand2;
+			if (document.getElementById("display").innerHTML == "") {
+				operand1 = 0;
+			} else {
+				var operand1 = parseFloat(document.getElementById("display").innerHTML);
+			}
+			if (document.getElementById("operand").value == "") {
+				operand2 = 0
+			} else {
+				var operand2 = parseFloat(document.getElementById("operand").value);
+			}
+			if (document.getElementById("plus").checked){
+				result = operand1 + operand2;
+			} else {
+				result = operand1 - operand2;
+			}
+			document.getElementById("display").innerHTML = result;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>crab swimming under water</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style>
+.myBackground {
+	position: relative;
+	overflow: hidden;
+	width: 1280px;
+	height: 800px;
+	border: 1px solid #000;
+	background: url("under-water.jpg");
+	background-size: auto;
+}
+
+.myBackground .crab {
+	position: absolute;
+	background: url("crab.gif");
+	background-repeat: no-repeat;
+	width: 225px;
+	height: 150px;
+	padding-top: 10px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	white-space: nowrap;
+}
+.myButton {
+	background-color: #69ACE2;
+	width: 90px;
+	height: 30px;
+	border: 5px solid blue;
+}
+</style>
+<script type="text/javascript">
+function move(elem) {
+
+  var left = 500;
+	var top = 500;
+	var point = 0;
+	var snd = new Audio('crab.mp3');
+	snd.load();
+
+  function moveCrab() {
+		snd.play();
+		switch (point) {
+			case 0:	// horizontal leftward motion
+				left--; // update parameters
+				elem.style.left = left + 'px'; // show frame
+				if (left <= 150) {
+					point = 1;
+				}
+				break;
+			case 1:	// vertical upward motion
+				top--; // update parameters
+				elem.style.top = top + 'px'; // show frame
+				if (top <= 150) {
+					point = 2; // check the changing condition
+				}
+				break;
+			case 2:	// horizontal rightward motion
+				left++;		// update parameters
+				elem.style.left = left + 'px';		// show frame
+				if (left >= 450) {
+					clearInterval(id);		// check the finishing condition
+					snd.pause();		// pause the music;
+				}
+				break;
+		}
+	}
+	var id = setInterval(moveCrab, 30) // draw every 30ms
+}
+</script>
+</head>
+<body>
+<div class="myBackground" onclick="move(this.children[0])">
+	<div style="left: 500px; top: 500px;" class="crab" id="mycrab"></div>
+	<div class="myButton" id="start">Move Crab</div>
+</div>
+</body>
+</html>

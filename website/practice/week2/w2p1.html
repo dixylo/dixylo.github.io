@@ -1,0 +1,102 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Example</title>
+<style>
+	body {
+		font-family: Monospace, Lucida Console;
+	}
+	#outsideBox {
+    width: 600px;
+    height: 150px;
+    background-color: lightblue;
+    animation-name: bgcolor;
+    animation-duration: 6s;
+		animation-delay: 30s;
+	}
+
+	@keyframes bgcolor {
+    0% { background-color: lightblue; }
+    50% { background-color: blue; }
+		100% { background-color: lightblue; }
+	}
+
+	#mainText {
+		font-size: 25px;
+		float: right;
+    color: lightblue;
+    animation-name: textMove;
+    animation-duration: 7s;
+    animation-delay: 5s;
+	}
+
+	@keyframes textMove {
+    0% { font-size: 25px; }
+		50% { font-size: 75px; color: blue;}
+    100% { font-size: 25px; }
+	}
+
+	#daisy {
+		position: absolute;
+		left: -70px;
+		top: 75px;
+    margin-left:10px;
+    animation-name: moveDaisy;
+    animation-duration: 10s;
+		animation-delay: 10s;
+		animation-iteration-count: 2;
+	}
+
+	@keyframes moveDaisy {
+    0% { margin-left:-70px; transform: rotate(20deg); }
+	 	10% { margin-left:30px; transform: rotate(40deg); }
+		50% { margin-left: 380px; transform: rotate(180deg); }
+		90% { margin-left: 30px; transform: rotate(320deg); }
+    100% { margin-left: -10px; transform: rotate(360deg);}
+	}
+
+	#greeting {
+		font-size: 65px;
+		margin-left: 30px;
+    color: #8600b3;
+    animation-name: greetingMove;
+    animation-duration: 8s;
+	}
+
+	@keyframes greetingMove {
+    0% { margin-left: -250px;  font-size: 65px;}
+		50% { margin-left: 130px; font-size: 90px; }
+    100% { margin-left: 30px; font-size: 65px; }
+	}
+
+	#lyrics {
+		font-size: 20px;
+		color: #4da6ff;
+		position: absolute;
+		left: -150px;
+		top:80px;
+    animation-name: makeLink;
+    animation-duration: 6s;
+		animation-delay: 30s;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes makeLink {
+    0% { left: 50px;	top:80px; }
+		50% { left: 350px;	top:100px; }
+    100% { left: 50px;	top:80px; }
+	}
+</style>
+</head>
+
+<body>
+	<div id="outsideBox">
+		<div id="daisy"><img src="../../images/daisy_small.png" alt="daisy" /></div>
+		<div id="greeting"><strong>Maria</strong></div>
+		<div id="mainText"><strong> Welcome Home! </strong></div>
+		<div id= "lyricsWrap"><a href="https://play.google.com/music/preview/Tvfw2zecl6gnn7fwocwnbdpgjva?lyrics=1&utm_source=google&utm_medium=search&utm_campaign=lyrics&pcampaignid=kp-lyrics" target="new" id="lyrics">lyrics for you </a></div>
+	</div>
+</body>
+</html>
