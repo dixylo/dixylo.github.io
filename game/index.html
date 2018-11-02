@@ -25,6 +25,10 @@
     <input id="vol" type="range" min="0" max="100">Max
   </div>
   <br>
+  <div>
+    Hint: Use Up Down Left Right arrows to control Eric.
+  </div>
+  <br>
   <div id="divShowRef">
     <button id="btnShowRef" onclick="showRef()">Show References</button>
   </div>
@@ -92,11 +96,12 @@
     basketImg.src = "images/basket.png";
     headImg.src = "images/eric.png";
     mouthImg.src = "images/mouth.png";
-    var soundIntro = new sound("audios/intro.mp3"); // intro sound
-    var soundOutro = new sound("audios/outro.mp3"); // outro sound
-    var soundOuch = new sound("audios/ouch.mp3");  // pain sound
-    var soundUhoh = new sound("audios/uhoh.mp3");  // another pain sound
-    var soundYay = new sound("audios/yay.mp3");   // happy sound
+    var soundIntro = new sound("audios/intro.mp3", false); // intro sound
+    var soundOutro = new sound("audios/outro.mp3", false); // outro sound
+    var soundOuch = new sound("audios/ouch.mp3", false);  // pain sound
+    var soundUhoh = new sound("audios/uhoh.mp3", false);  // another pain sound
+    var soundYay = new sound("audios/yay.mp3", false);   // happy sound
+    var soundBg = new sound("audios/bg.mp3", true); // background music
 
     // head object, defining the initial position
     var head = {
@@ -486,12 +491,13 @@
     }
 
     // Define the sound class
-    function sound(src) {
+    function sound(src, isLooped) {
       this.sound = document.createElement("audio");
       this.sound.src = src;
       this.sound.setAttribute("preload", "auto");
       this.sound.setAttribute("controls", "none");
       this.sound.style.display = "none";
+      if (isLooped) { this.sound.loop = true; }
 
       document.body.appendChild(this.sound);
       this.play = function(){
@@ -571,7 +577,7 @@
       timeLeft = 7 * 60 * 1000; // time limit: 7 min
       document.getElementById("btnStart").innerHTML = "Restart Game";
       countClick += 1;
-      soundIntro.play();
+      soundBg.play();
     }
 
   </script>
