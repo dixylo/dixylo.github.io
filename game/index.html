@@ -22,7 +22,7 @@
   <div id="divControl">
     <button id="btnStart" onclick="startGame()">Start Game</button>
     Sound Volume: Min
-    <input id="vol" type="range" min="0" max="100">Max
+    <input id="vol" type="range" min="0" max="100" onchange="adjustVol()">Max
   </div>
   <br>
   <div>
@@ -151,7 +151,7 @@
             basket.x -= basket.speed * mod;
             head.x -= head.speed * mod;
           }
-          else {  // when moving to the bound
+          else {  // when hitting the bound
             basket.x = leftBound;
             head.x = leftBound + basketWidth;
           }
@@ -188,6 +188,13 @@
         }
     }
 
+    function drawCircle(x, y, radius, fillStyle) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = fillStyle;
+      ctx.fill();
+    }
+
     // create the orange class
     function orange(x, y) {
       this.x = x;  // the center x
@@ -197,24 +204,17 @@
       var radius = 6; // orange radius, in px;
       this.update = function() {  // update the moving phase of an orange
         if (tick < growTime * 1000 / interval) {  // growing phase
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, radius, 0, 2 * Math.PI);
-          ctx.fillStyle = "green";
-          ctx.fill();
+          drawCircle(this.x, this.y, radius, "green");
           tick += 1;
           radius += (ripeRadius - bornRadius) / (growTime * 1000 / interval);
         }
         // riping phase
         else if (tick >= growTime * 1000 / interval && tick < (growTime + ripeTime) * 1000 / interval) {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, ripeRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = "rgb(" + Math.floor(34 * g) + ", " + (128 - Math.floor(g)) + ", 0)" ;  // gradually shift the color
-          ctx.fill();
+          var colorEvolve = "rgb(" + Math.floor(34 * g) + ", " + (128 - Math.floor(g)) + ", 0)"; // gradually shift the color
+          drawCircle(this.x, this.y, ripeRadius, colorEvolve);
+
           // Draw the stub
-          ctx.beginPath();
-          ctx.arc(this.x, this.y - stubOffset, stubRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          drawCircle(this.x, this.y - stubOffset, stubRadius, "#006600");
 
           g += 0.03;  // control the speed of color shifting
           tick += 1;
@@ -225,15 +225,10 @@
           var orangeGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, ripeRadius);
           orangeGrad.addColorStop(0,"#FF7510");
           orangeGrad.addColorStop(1,"#E65C00");
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, ripeRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = orangeGrad;
-          ctx.fill();
+          drawCircle(this.x, this.y, ripeRadius, orangeGrad);
+
           // Draw the stub
-          ctx.beginPath();
-          ctx.arc(this.x, this.y - stubOffset, stubRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          drawCircle(this.x, this.y - stubOffset, stubRadius, "#006600");
 
           tick += 1;
         }
@@ -242,15 +237,10 @@
           orangeGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, ripeRadius);
           orangeGrad.addColorStop(0,"#FF7510");
           orangeGrad.addColorStop(1,"#E65C00");
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, ripeRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = orangeGrad;
-          ctx.fill();
+          drawCircle(this.x, this.y, ripeRadius, orangeGrad);
+
           // Draw the stub
-          ctx.beginPath();
-          ctx.arc(this.x, this.y - stubOffset, stubRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          drawCircle(this.x, this.y - stubOffset, stubRadius, "#006600");
 
           this.y += (canvasHeight - ripeRadius - y) / (fallTime * 1000 / interval); // calculate the update step by dividing the distance btw the born and final postions w/ falltime
           tick += 1;
@@ -260,15 +250,10 @@
           orangeGrad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, ripeRadius);
           orangeGrad.addColorStop(0,"#FF7510");
           orangeGrad.addColorStop(1,"#E65C00");
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, ripeRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = orangeGrad;
-          ctx.fill();
+          drawCircle(this.x, this.y, ripeRadius, orangeGrad);
+
           // Draw the stub
-          ctx.beginPath();
-          ctx.arc(this.x, this.y - stubOffset, stubRadius, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          drawCircle(this.x, this.y - stubOffset, stubRadius, "#006600");
         }
       }
     }
@@ -296,28 +281,20 @@
       if (countCatch < 5 && countCatch > 0) { // If less than five, oranges will pile on.
         var catchedX = basket.x + basket.width / 8; // Display 4 oranges at most, hence the radius is basket.width/8
         for (var i = 0; i < countCatch; i++) {
-          ctx.beginPath(); // Draw the orange body
-          ctx.arc(catchedX, basket.y, basket.width / 8, 0, 2 * Math.PI);
-          ctx.fillStyle = "#FF6600";
-          ctx.fill();
-          ctx.beginPath(); // Draw the stub
-          ctx.arc(catchedX, basket.y - 11, 2, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          // Draw the orange body
+          drawCircle(catchedX, basket.y, basket.width / 8, "#FF6600");
+          // Draw the stub
+          drawCircle(catchedX, basket.y - 11, 2, "#006600");
           catchedX += basket.width / 4;
         }
       }
       if (countCatch >= 5) { // If more than five, no more oranges will show up.
         catchedX = basket.x + basket.width / 8;
         for (var i = 0; i < 4; i++) {
-          ctx.beginPath(); // Draw the orange body
-          ctx.arc(catchedX, basket.y, basket.width / 8, 0, 2 * Math.PI);
-          ctx.fillStyle = "#FF6600";
-          ctx.fill();
-          ctx.beginPath(); // Draw the stub
-          ctx.arc(catchedX, basket.y - 11, 2, 0, 2 * Math.PI);
-          ctx.fillStyle = "#006600";
-          ctx.fill();
+          // Draw the orange body
+          drawCircle(catchedX, basket.y, basket.width / 8, "#FF6600");
+          // Draw the stub
+          drawCircle(catchedX, basket.y - 11, 2, "#006600");
           catchedX += basket.width / 4;
         }
       }
@@ -392,21 +369,22 @@
       }
     }
 
+    function drawLine(moveToX, moveToY, lineToX, lineToY) {
+      ctx.beginPath();
+      ctx.moveTo(moveToX, moveToY);
+      ctx.lineTo(lineToX, lineToY);
+      ctx.stroke();
+    }
+
     // Draw frowning
     var countFrown = 0;
     function drawFrown() {
       countGrin = 0; // Prevent grinning from apprearing at the same time
       ctx.lineWidth = 2;
       // Left eyebrow
-      ctx.beginPath();
-      ctx.moveTo(head.x + 33, head.y + 10);
-      ctx.lineTo(head.x + 43, head.y + 20);
-      ctx.stroke();
+      drawLine(head.x + 33, head.y + 10, head.x + 43, head.y + 20);
       // Right eyebrow
-      ctx.beginPath();
-      ctx.moveTo(head.x + 58, head.y + 10);
-      ctx.lineTo(head.x + 48, head.y + 20);
-      ctx.stroke();
+      drawLine(head.x + 58, head.y + 10, head.x + 48, head.y + 20);
       // Make eyebrows stay longer
       countFrown += 1;
       if (countFrown > 50) {
@@ -420,15 +398,9 @@
       countFrown = 0; // Prevent frowning from apprearing at the same time
       ctx.lineWidth = 2;
       // Left eyebrow
-      ctx.beginPath();
-      ctx.moveTo(head.x + 23, head.y + 13);
-      ctx.lineTo(head.x + 40, head.y + 10);
-      ctx.stroke();
+      drawLine(head.x + 23, head.y + 13, head.x + 40, head.y + 10);
       // Right eyebrow
-      ctx.beginPath();
-      ctx.moveTo(head.x + 67, head.y + 13);
-      ctx.lineTo(head.x + 50, head.y + 10);
-      ctx.stroke();
+      drawLine(head.x + 67, head.y + 13, head.x + 50, head.y + 10);
       // Mouth
       ctx.drawImage(mouthImg, 0, 0, 37, 24, head.x + 27, head.y + 39, 37, 24);
 
@@ -458,14 +430,9 @@
         ctx.fillStyle="white";
         ctx.fillRect(head.x + iX1, head.y + iY, pathL, pathW);
         ctx.fillRect(head.x + iX2, head.y + iY, pathL, pathW);
-        // Draw the left iris
-        ctx.fillStyle="black";
-        ctx.beginPath();
-        ctx.arc(head.x + x1, head.y + iY + iR, iR, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(head.x + x2, head.y + iY + iR, iR, 0, Math.PI * 2);
-        ctx.fill();
+        // Draw the left and right irises
+        drawCircle(head.x + x1, head.y + iY + iR, iR, "black");
+        drawCircle(head.x + x2, head.y + iY + iR, iR, "black");
 
         x1 = x1 + step;
         x2 = x2 + step;
@@ -484,7 +451,8 @@
     }
 
     // collision checking
-    function intersect(x, y, w, h, xi, yi, wi, hi) {
+    function intersect(x, y, w, h, xi, yi, wi, hi) { // parameters are the sets of coordinates and sizes of two square objects
+      // hitting happens if the centers come less than half of the widths and heights of the two objects
       if (Math.abs((x+w/2)-(xi+wi/2))<(w+wi)/2 && Math.abs((y+h/2)-(yi+hi/2))<(h+hi)/2)
         return true;  // if collided, return true
       else return false;
@@ -504,9 +472,22 @@
         this.sound.volume = document.getElementById("vol").value / 100;  // control volume
         this.sound.play();
       }
+      this.volume = function(){
+        this.sound.volume = document.getElementById("vol").value / 100;  // control volume
+      }
       this.stop = function(){
         this.sound.pause();
       }
+    }
+
+    // Adjust the sound volume
+    function adjustVol() {
+      soundIntro.volume();
+      soundOutro.volume();
+      soundOuch.volume();
+      soundUhoh.volume();
+      soundYay.volume();
+      soundBg.volume();
     }
 
     // score updating
