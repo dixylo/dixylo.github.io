@@ -21,6 +21,7 @@
   <div id="divCanvas" ><img src="images/IntroBG.jpg"/></div>
   <div id="divControl">
     <button id="btnStart" onclick="startGame()">Start Game</button>
+    <button id="btnPause" onclick="pauseGame()" style="display: none;">Pause Game</button>
     Sound Volume: Min
     <input id="vol" type="range" min="0" max="100" onchange="adjustVol()">Max
   </div>
@@ -515,6 +516,7 @@
       if (timeLeft <= 0) {
         gameArea.stop();
         soundOutro.play();
+        soundBg.stop();
         alert("Time is up! You scored " + score + "!");
       }
     }
@@ -527,7 +529,10 @@
         this.canvas.height = canvasHeight;
         this.context = this.canvas.getContext("2d");
         divCanvas.appendChild(this.canvas);
-        this.frameNo = 0;
+        // this.frameNo = 0;
+        this.interval = setInterval(run, interval);
+      },
+      resume : function() {
         this.interval = setInterval(run, interval);
       },
       stop : function() {
@@ -536,6 +541,19 @@
       clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       }
+    }
+
+    var isPaused = false;
+    function pauseGame() {
+      if (!isPaused) {
+        gameArea.stop();
+        soundBg.stop();
+      } else {
+        gameArea.resume();
+        soundBg.play();
+      }
+      isPaused = !isPaused;
+      document.getElementById("btnPause").innerHTML = isPaused ? "Resume Game" : "Pause Game";
     }
 
     // initialize the game
@@ -557,6 +575,7 @@
       score = 0;
       timeLeft = 7 * 60 * 1000; // time limit: 7 min
       document.getElementById("btnStart").innerHTML = "Restart Game";
+      document.getElementById("btnPause").style.display = "inline";
       countClick += 1;
       soundBg.play();
     }
