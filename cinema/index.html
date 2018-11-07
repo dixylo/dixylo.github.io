@@ -5,7 +5,8 @@
 <style>
   body {
     margin: auto;
-    width: 66%;
+    width: 100%;
+    padding: 50px;
   }
   canvas {
     border:1px solid #d3d3d3;
@@ -20,16 +21,23 @@
     float: left;
     border-radius: 10px;
   }
+  #divControl {
+  	width: 200px;
+  	height: 600px;
+  	float: left;
+  }
 </style>
 </head>
 <body>
-  <p>Click on a Room to choose seats</p>
-  <button id="btnF" type="button" onclick="show_seats(event)">Room Florence</button>
-  <button id="btnR" type="button" onclick="show_seats(event)">Room Ronald</button><br><br>
+	<div id="divControl">
+	  <p>Click on a Room to select seats</p>
+	  <button id="btnF" type="button" onclick="show_seats(event)">Room Florence</button>
+	  <button id="btnR" type="button" onclick="show_seats(event)">Room Ronald</button>
+	  <div id="divTable"></div>
+	  <button id="btnBook" onclick="confirm_booking()">Confirm Booking</button>
+	</div>
   <canvas id="myCanvas"></canvas>
-  <div id="divTable"></div>
-  <br>
-  <button id="btnBook" onclick="confirm_booking()">Confirm Booking</button>
+  
 <script>
 
   const cnvWidth = 950;
