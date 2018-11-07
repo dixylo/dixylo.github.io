@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Cinema>
+	<Room id="F" name="Florence">
+		<Row id="fr1">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr2">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr3">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr4">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr5">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr6">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr7">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="fr8">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+	</Room>
+	<Room id="R" name="Ronald">
+		<Row id="rr1">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr2">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr3">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr4">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr5">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr6">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr7">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr8">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr9">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+		<Row id="rr10">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+		</Row>
+	</Room>
+</Cinema>
