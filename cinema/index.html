@@ -5,11 +5,20 @@
 <style>
   body {
     margin: auto;
-    width: 50%;
+    width: 66%;
   }
   canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
+    background-image: url('images/cinema.jgp');
+    background-size: 950px 600px;
+  }
+  button {
+    width: 150px;
+    height: 50px;
+    display: block;
+    float: left;
+    border-radius: 10px;
   }
 </style>
 </head>
@@ -17,11 +26,34 @@
   <p>Click on a Room to choose seats</p>
   <button id="btnF" type="button" onclick="show_seats(event)">Room Florence</button>
   <button id="btnR" type="button" onclick="show_seats(event)">Room Ronald</button><br><br>
-  <canvas id="myCanvas" width="700" height="250"></canvas>
+  <canvas id="myCanvas"></canvas>
+  <div id="divTable"></div>
+  <br>
+  <button id="btnBook" onclick="confirm_booking()">Confirm Booking</button>
 <script>
 
-  var cnv = document.getElementById("myCanvas");
-  var ctx = cnv.getContext("2d");
+  const cnvWidth = 950;
+  const cnvHeight = 600;
+  const cnv = document.getElementById("myCanvas");
+  cnv.style.backgroundImage = "url('images/cinema.jpg')";
+  cnv.width = cnvWidth;
+  cnv.height = cnvHeight;
+  const ctx = cnv.getContext("2d");
+  const seatWidth = 40;
+  const seatHeight = 50;
+  const offsetX = 200;
+  const offsetY = 50;
+  const white_chair = new Image();
+  const green_chair = new Image();
+  const red_chair = new Image();
+  white_chair.src = "images/white_chair.png";
+  green_chair.src = "images/green_chair.png";
+  red_chair.src = "images/red_chair.png";
+  var roomID = "";
+  var chosenSeats = []; // used to store chosen seats
+  var total = 0; // the total price of the chosen seats
+  var strTable = ""; // used to create the price table
+  cnv.addEventListener("mousedown", choose_seats, false);
 
   // Define the seat Class
   function seat(room, row, number, price, status, x, y) {
@@ -33,26 +65,29 @@
     this.x = x;
     this.y = y;
     this.draw = function () {
-      ctx.beginPath();
-      ctx.rect(this.x, this.y, seatWidth, seatHeight);
-      ctx.stroke();
+      let chair;
       if (confirmed) {
-        ctx.fillStyle = "#3366FF"; // color of booked seats
+        chair = red_chair;
       }
       else {
         if (chosenSeats.includes(this)) {
-          ctx.fillStyle = "#CCD9FF"; // color of vacant seats
+          chair = white_chair;
           chosenSeats.splice(chosenSeats.indexOf(this), 1); // delete it from the chosen seat array, so it can be chosen again
           total -= this.price;
         }
         else {
-          ctx.fillStyle = "green"; // color of chosen seats
+          chair = green_chair;
           chosenSeats.push(this); // store the chosen seat
           total += this.price;
         }
         draw_table();
       }
-      ctx.fillRect(this.x, this.y, seatWidth, seatHeight);
+      ctx.clearRect(this.x, this.y, seatWidth, seatHeight);
+      ctx.drawImage(chair, this.x, this.y, seatWidth, seatHeight);
+      var seatCode = String.fromCharCode(this.row + 64) + this.number;
+      ctx.font = "12px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(seatCode, this.x + 20, this.y + 25);
     }
   }
   var seats = []; // Array declaration - empty, and it will be loaded from XML file
@@ -104,22 +139,23 @@
     		seats.push(new seat(room, row, number, price, status, seatX, seatY));
     	}
     }
-  }
-
-  var seatWidth = 50;
-  var seatHeight = 20;
+  }  
 
   function show_seats(event) {
-    ctx.clearRect(0, 0, 700, 250);
-    ctx.lineWidth = "1";
-    ctx.strokeStyle = "black";
+    ctx.clearRect(0, 0, cnvWidth, cnvHeight);
+    cnv.style.backgroundImage = "none";
+    ctx.rect(100, 0, 750, 40);
+    ctx.stroke();
+    ctx.font = "30px Arial";
+    ctx.fillText("SCREEN",450,30);
     for (var i = 0; i < seats.length; i++) {
       seatY = seats[i].row * seatHeight;
+      let chair;
       if (seats[i].status == "booked") {
-        ctx.fillStyle = "#3366FF";
+        chair = red_chair;
       }
       else {
-        ctx.fillStyle = "#CCD9FF";
+        chair = white_chair;
       }
       if (event.target.id == "btnF" && seats[i].room == 'f') {
         if (seats[i].row == 1) {
@@ -138,10 +174,13 @@
             seatX = (seats[i].number + 1) * seatWidth;
           }
         }
-        ctx.beginPath();
-        ctx.rect(seatX, seatY, seatWidth, seatHeight);
-        ctx.stroke();
-        ctx.fillRect(seatX, seatY, seatWidth, seatHeight);
+        seatX = seatX + offsetX;
+        seatY = seatY + offsetY;
+        ctx.drawImage(chair, seatX, seatY, seatWidth, seatHeight);
+        var seatCode = String.fromCharCode(seats[i].row + 64) + seats[i].number;
+        ctx.font = "12px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(seatCode, seatX + 20, seatY + 25);
         seats[i].x = seatX;
         seats[i].y = seatY;
       }
@@ -162,10 +201,13 @@
             seatX = (seats[i].number + 1) * seatWidth;
           }
         }
-        ctx.beginPath();
-        ctx.rect(seatX, seatY, seatWidth, seatHeight);
-        ctx.stroke();
-        ctx.fillRect(seatX, seatY, seatWidth, seatHeight);
+        seatX = seatX + offsetX;
+        seatY = seatY + offsetY;
+        ctx.drawImage(chair, seatX, seatY, seatWidth, seatHeight);
+        var seatCode = String.fromCharCode(seats[i].row + 64) + seats[i].number;
+        ctx.font = "12px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(seatCode, seatX + 20, seatY + 25);
         seats[i].x = seatX;
         seats[i].y = seatY;
       }
@@ -175,13 +217,6 @@
     total = 0;
     document.getElementById("divTable").innerHTML = "";
   }
-
-  var roomID = "";
-  var chosenSeats = []; // used to store chosen seats
-  var total = 0; // the total price of the chosen seats
-  var strTable = ""; // used to create the price table
-
-  cnv.addEventListener("mousedown", choose_seats, false);
 
   function choose_seats(event) {
     var rect = cnv.getBoundingClientRect(); // the coordinates of the tip of the mouse arrow are not those in the canvas
@@ -258,8 +293,5 @@
     }
   }
 </script>
-<div id="divTable"></div>
-<br>
-<button id="btnBook" onclick="confirm_booking()">Confirm Booking</button>
 </body>
 </html>
