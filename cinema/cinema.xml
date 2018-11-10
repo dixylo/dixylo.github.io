@@ -11,6 +11,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="fr2">
 			<Seat><Status>vacant</Status></Seat>
@@ -22,6 +27,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 		</Row>
@@ -37,12 +47,22 @@
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="fr4">
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
@@ -63,6 +83,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="fr6">
 			<Seat><Status>vacant</Status></Seat>
@@ -74,6 +99,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 		</Row>
@@ -89,6 +119,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="fr8">
 			<Seat><Status>vacant</Status></Seat>
@@ -102,10 +137,19 @@
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 	</Room>
 	<Room id="R" name="Ronald">
 		<Row id="rr1">
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
@@ -124,6 +168,12 @@
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="rr3">
 			<Seat><Status>vacant</Status></Seat>
@@ -137,8 +187,18 @@
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 		</Row>
 		<Row id="rr4">
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
@@ -158,6 +218,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
@@ -169,6 +234,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
@@ -188,6 +258,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="rr8">
@@ -201,12 +276,23 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 		</Row>
 		<Row id="rr9">
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
@@ -218,6 +304,11 @@
 			<Seat><Status>vacant</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
+			<Seat><Status>vacant</Status></Seat>
+			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>booked</Status></Seat>
 			<Seat><Status>vacant</Status></Seat>
